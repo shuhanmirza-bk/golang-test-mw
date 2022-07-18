@@ -8,7 +8,7 @@ import (
 )
 
 type GetRandomRequest struct {
-	Length int `json:"length" binding:"gt=0"`
+	Length int `json:"length" binding:"gt=0,lt=999999"`
 }
 
 type GetRandomResponse struct {
@@ -27,6 +27,11 @@ func (server *Server) getRandom(ctx *gin.Context) {
 
 		fmt.Printf("%v", response)
 		ctx.JSON(http.StatusOK, response)
+		return
+	} else {
+		fmt.Println("validation error")
+		fmt.Println(err)
+		ctx.JSON(http.StatusBadRequest, errorResponse(err))
 		return
 	}
 }
