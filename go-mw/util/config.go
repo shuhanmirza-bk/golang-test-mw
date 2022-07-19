@@ -4,6 +4,7 @@ import "github.com/spf13/viper"
 
 type GlobalConfig struct {
 	ServerAddress string `mapstructure:"SERVER_ADDRESS"`
+	TargetAddress string `mapstructure:"TARGET_ADDRESS""`
 }
 
 func LoadGlobalConfig(path string) (config GlobalConfig, err error) {

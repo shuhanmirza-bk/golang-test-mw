@@ -15,7 +15,7 @@ func main() {
 
 	fmt.Println(globalConfig)
 
-	mwServer := goMwService.NewServer()
+	mwServer := goMwService.NewServer(globalConfig)
 	err = mwServer.Start(globalConfig.ServerAddress)
 	if err != nil {
 		log.Fatal("can not start the mwServer", err)
