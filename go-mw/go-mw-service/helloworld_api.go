@@ -27,6 +27,7 @@ func (server *Server) getHelloWorld(ctx *gin.Context) {
 	response, err := server.httpGetRequest(url)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 
 	ctx.JSON(http.StatusOK, response)
@@ -39,6 +40,7 @@ func (server *Server) getHelloWorldDelayed(ctx *gin.Context) {
 	response, err := server.httpGetRequest(url)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 
 	ctx.JSON(http.StatusOK, response)
@@ -51,6 +53,7 @@ func (server *Server) getHelloWorldVeryDelayed(ctx *gin.Context) {
 	response, err := server.httpGetRequest(url)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, err.Error())
+		return
 	}
 
 	ctx.JSON(http.StatusOK, response)
