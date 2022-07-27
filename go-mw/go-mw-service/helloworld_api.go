@@ -23,7 +23,7 @@ func (server *Server) httpGetRequest(url string) (string, error) {
 func (server *Server) getHelloWorld(ctx *gin.Context) {
 	var err error
 
-	url := GLOBAL_CONFIG.TargetAddress + "/post"
+	url := GLOBAL_CONFIG.TargetAddress + "/hello-world"
 	response, err := server.httpGetRequest(url)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, err.Error())
@@ -36,7 +36,7 @@ func (server *Server) getHelloWorld(ctx *gin.Context) {
 func (server *Server) getHelloWorldDelayed(ctx *gin.Context) {
 	var err error
 
-	url := GLOBAL_CONFIG.TargetAddress + "/post"
+	url := GLOBAL_CONFIG.TargetAddress + "/hello-world/delayed"
 	response, err := server.httpGetRequest(url)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, err.Error())
@@ -49,7 +49,7 @@ func (server *Server) getHelloWorldDelayed(ctx *gin.Context) {
 func (server *Server) getHelloWorldVeryDelayed(ctx *gin.Context) {
 	var err error
 
-	url := GLOBAL_CONFIG.TargetAddress + "/post"
+	url := GLOBAL_CONFIG.TargetAddress + "/hello-world/very-delayed"
 	response, err := server.httpGetRequest(url)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, err.Error())
